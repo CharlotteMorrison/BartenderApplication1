@@ -1,0 +1,27 @@
+﻿@model BartenderApp.Domain.Entities.OrderDetails
+
+@{
+    ViewBag.Title = "Order Drinks";
+}
+
+<h2>Place an Order for your drinks.</h2>
+
+<p>Please enter your information to place your order.</p>
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    <h3>Enter the name for this order:</h3>
+    <div class="form-group">
+        <label>First Name</label>
+        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+    </div>
+
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Complete Order"/>
+    </div>
+}

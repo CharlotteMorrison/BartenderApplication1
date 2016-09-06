@@ -1,0 +1,19 @@
+﻿@model BartenderApp.WebUI.Models.ProductListViewModel
+@using BartenderApp.WebUI.HtmlHelpers
+@*@using BartenderApp.Domain.Entities
+@using BartenderApp.Domain.Abstract
+@model IEnumerable<Product>*@
+
+@{
+    ViewBag.Title = "Drink Menu";
+}
+
+@foreach (var p in Model.Products)
+{
+   @Html.Partial("ProductSummary", p)
+}
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", 
+        new { page = x, category = Model.CurrentCategory }))
+</div>
+
